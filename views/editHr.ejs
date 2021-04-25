@@ -8,7 +8,7 @@ width: 40%;
 
 ">
   
-      <form action="/hr/<%=hr._id%>?_method=PUT" method="POST">
+      <form action="/hr/<%=hr._id%>?_method=PUT" method="POST" style="margin-top: 20px;">
         <div class="row">
           <div class="col">
             <h1 style="text-align:center;">Edit Profile<%= hr.name%></h1>
@@ -87,7 +87,7 @@ width: 40%;
           </div>
         </div>
       </form>
-      <a href="/hr/profile">Back</a>
+  <a href="/hr/<%= hr.id%>">Back</a>
     </div>
   </div>
 </div>

@@ -1,7 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1363842-b723-4968-afe3-38bde09fc351" name="Default Changelist" comment="" />
+    <list default="true" id="a1363842-b723-4968-afe3-38bde09fc351" name="Default Changelist" comment="Project">
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/UPGRADE_GUIDE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/adapters/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/adapters/http.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/adapters/xhr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/cancel/Cancel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/cancel/CancelToken.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/cancel/isCancel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/Axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/InterceptorManager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/buildFullPath.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/createError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/dispatchRequest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/enhanceError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/mergeConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/settle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/transformData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/defaults.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/bind.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/buildURL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/combineURLs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/cookies.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/deprecatedMethod.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/isAbsoluteURL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/isAxiosError.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/isURLSameOrigin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/normalizeHeaderName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/parseHeaders.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/spread.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/lib/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/axios/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/lib/cli-options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/lib/env-options.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/lib/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/types/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/types/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/types/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/dotenv/types/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/ejs/postinstall.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/follow-redirects/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/follow-redirects/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/follow-redirects/debug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/follow-redirects/http.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/follow-redirects/https.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/follow-redirects/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/follow-redirects/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/aboutUsEmployee.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/aboutUsHr.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/aboutUsManager.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/contactEmployee.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/contactHr.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/contactManager.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/editLeave.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/posts.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Employee-Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Employee-Search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/leave.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/leave.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/Jakefile" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ejs/jakefile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ejs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/ejs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ejs/ejs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/ejs.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ejs/ejs.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/lib/ejs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ejs/lib/ejs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ejs/lib/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ejs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ejs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/Employee-Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/Employee-Service.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Hrmoreinfoemployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Hrmoreinfoemployee.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/editHr.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/editHr.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/editManager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/editManager.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/homehr.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/homehr.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/hrlogin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/hrlogin.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/managerlogin.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/managerlogin.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partial/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partial/header.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partial/hrfunction.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partial/hrfunction.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/trackLeave.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/trackLeave.ejs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +110,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1rRgm1hrkAw4oWWf5Y30hlCZNQX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,6 +132,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -42,15 +143,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -65,11 +164,36 @@
       <option name="presentableId" value="Default" />
       <updated>1618944471646</updated>
       <workItem from="1618944475061" duration="151000" />
-      <workItem from="1618944629279" duration="28948000" />
+      <workItem from="1618944629279" duration="101747000" />
+      <workItem from="1619366555390" duration="1602000" />
     </task>
+    <task id="LOCAL-00001" summary="Project">
+      <created>1619024621946</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619024621946</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project" />
   </component>
 </project>

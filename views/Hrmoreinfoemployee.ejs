@@ -1,4 +1,5 @@
 <% include ./partial/header %>
+
 <div
   class="col-sm-9"
   style="margin: 50px 125px;    text-align: -webkit-center; border: 1px solid purple"
@@ -36,12 +37,14 @@
               class="btn btn-block btn-success"
               name="action"
               value="Approve"
+              onClick="history.go(-1)"
             />
             <input
               type="submit"
               class="btn btn-block btn-danger"
               name="action"
               value="Decline"
+              onClick="history.go(-1)"
             />
           </div>
         </div>
@@ -50,5 +53,6 @@
       </div>
     </div>
   </form>
+  <a href="/hr/<%= hr.id%>/leave">Back</a>
 </div>
 <% include ./partial/footer %>

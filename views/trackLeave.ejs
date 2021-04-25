@@ -23,6 +23,7 @@ margin-top: -181px;  text-align: -webkit-center;"
         <th>Manager Status</th>
         <th>Hr Status</th>
         <th>Final Status</th>
+        <th>Actions</th>
         
       </tr>
       <%employee.leaves.forEach(function(leave){%>
@@ -47,6 +48,12 @@ margin-top: -181px;  text-align: -webkit-center;"
           <%leave.finalstatus="denied"%>
          <%}%>
         <td><%=leave.finalstatus%></td>
+        <td>
+          <a class="btn btn-warning" href="/employee/<%=employee._id%>/track/<%=leave._id%>/edit">Edit</a>
+        </td>
+        <td>
+          <a class="btn btn-warning" href="/employee/<%=employee._id%>/track/<%=leave._id%>/delete">Delete</a>
+        </td>
       </tr>
 
       <%})%>

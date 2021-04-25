@@ -10,7 +10,7 @@ width: 40%;
 "
 >
   
-      <form action="/manager/<%=manager._id%>?_method=PUT" method="POST">
+      <form action="/manager/<%=manager._id%>?_method=PUT" method="POST" style="margin-top: 20px;">
         <div class="row">
           <div class="col">
             <h1 style="text-align:center;">Edit Profile <%= manager.name%></h1>
@@ -73,7 +73,7 @@ width: 40%;
           </div>
         </div>
       </form>
-      <a href="/manager/profile">Back</a>
+    <a href="/manager/<%= manager.id%>">Back</a>
     </div>
   </div>
 </div>

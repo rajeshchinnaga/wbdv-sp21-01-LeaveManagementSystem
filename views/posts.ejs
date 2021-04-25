@@ -1,0 +1,14 @@
+<% include ./partial/header %>
+
+<div>
+    <% items.forEach(function(item) { %>
+        <ul>
+            <li><%= item.FirstName %></li>
+            <li><%= item.LastName %></li>
+            <li><%= item.FullName %></li>
+            <li><%= item.Email %></li>
+        </ul>
+    <% }); %>
+</div>
+
+<% include ./partial/footer %>

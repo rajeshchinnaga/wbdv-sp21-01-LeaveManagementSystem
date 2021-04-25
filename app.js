@@ -15,6 +15,7 @@ var express = require("express"),
   Leave = require("./models/leave");
 
 var moment = require("moment");
+var axios = require("axios").default;
 
 var url =process.env.DATABASEURL|| "mongodb+srv://Admin:admin@leavemanagementsystem.up08i.mongodb.net/LeaveManagementSystem?retryWrites=true&w=majority";
 mongoose
@@ -47,7 +48,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-// passport.use(new LocalStrategy(Student.authenticate()));
+// passport.use(new LocalStrategy(Employee.authenticate()));
 // passport.use(
 //   new LocalStrategy(function(username, password, done) {
 //     User.findOne({ username: username }, function(err, user) {
@@ -106,6 +107,32 @@ function ensureAuthenticated(req, res, next) {
 app.get("/", (req, res) => {
   res.render("home");
 });
+
+
+var options = {
+  method: 'GET',
+  url: 'https://generate-people.p.rapidapi.com/generatepeople',
+  headers: {
+    'x-rapidapi-key': '0e3f246e14msh1441f9d5a1ed78cp13713djsnf9afcbb5832f',
+    'x-rapidapi-host': 'generate-people.p.rapidapi.com'
+  }
+};
+
+app.get("/posts", (req, res) => {
+  axios
+      .get(options)
+      .then(function (result) {
+        res.render("posts", {
+          items: result.data
+        });
+      })
+      .catch(function (error) {
+        // handle errors appropriately
+        res.render("error", { error });
+      });
+});
+
+
 
 //login logic for Employee
 
@@ -379,6 +406,42 @@ app.get("/employee/home", ensureAuthenticated, (req, res) => {
       }
     });
 });
+app.get("/employee/contact", ensureAuthenticated, (req, res) => {
+  var employee = req.user.username;
+  console.log(employee);
+  Employee.findOne({ username: req.user.username })
+      .populate("leaves")
+      .exec((err, employee) => {
+        if (err || !employee) {
+          req.flash("error", "Employee not found");
+          res.redirect("back");
+          console.log("err");
+        } else {
+          res.render("contactEmployee", {
+            employee: employee,
+            moment: moment
+          });
+        }
+      });
+});
+app.get("/employee/aboutus", ensureAuthenticated, (req, res) => {
+  var employee = req.user.username;
+  console.log(employee);
+  Employee.findOne({ username: req.user.username })
+      .populate("leaves")
+      .exec((err, employee) => {
+        if (err || !employee) {
+          req.flash("error", "Employee not found");
+          res.redirect("back");
+          console.log("err");
+        } else {
+          res.render("aboutUsEmployee", {
+            employee: employee,
+            moment: moment
+          });
+        }
+      });
+});
 app.get("/employee/:id", ensureAuthenticated, (req, res) => {
   console.log(req.params.id);
   Employee.findById(req.params.id)
@@ -397,6 +460,10 @@ app.get("/employee/:id/edit", ensureAuthenticated, (req, res) => {
     res.render("editEmployee", { employee: foundEmployee });
   });
 });
+
+
+
+
 app.put("/employee/:id", ensureAuthenticated, (req, res) => {
   console.log(req.body.employee);
   Employee.findByIdAndUpdate(
@@ -413,6 +480,8 @@ app.put("/employee/:id", ensureAuthenticated, (req, res) => {
     }
   );
 });
+
+
 
 app.get("/employee/:id/apply", ensureAuthenticated, (req, res) => {
   Employee.findById(req.params.id, (err, foundEmployee) => {
@@ -484,11 +553,101 @@ app.get("/employee/:id/track", (req, res) => {
         req.flash("error", "No employee with requested id");
         res.redirect("back");
       } else {
-        
         res.render("trackLeave", { employee: foundEmployee, moment: moment });
       }
     });
 });
+app.get("/employee/:id/track/:id1/edit", ensureAuthenticated, (req, res) => {
+
+  const leaveId = req.params["id1"];
+  Employee.findById({_id: req.params.id})
+      .populate("leaves")
+      .exec((err, foundEmployee) => {
+        console.log("Employee ID is:")
+        console.log(foundEmployee._id);
+        // console.log(foundEmployee.leaves);
+          const leave = Leave.findOne(leaveId).limit(1);
+          console.log("Leave is ",leave);
+          // console.log(leave["from"])
+          Leave.findById(leave,(err, foundLeave) => {
+            console.log(leaveId);
+            console.log(leave["from"]);
+            var fromDate = moment(leave.from).utc().format("YYYY-MM-DD");
+            var toDate = moment(leave.to).utc().format("YYYY-MM-DD");
+            console.log(fromDate);
+            console.log(toDate);
+            res.render("editLeave", {employee: foundEmployee, leave:leave, fromDate: fromDate, toDate: toDate});
+            console.log("LoadedEditLeave");
+          });
+      });
+});
+
+app.post("/employee/:id/track/:id", (req, res) => {
+  Employee.findById(req.params.id)
+      .populate("leaves")
+      .exec((err, employee) => {
+        if (err) {
+          res.redirect("/employee/home");
+        } else {
+          date = new Date(req.body.leave.from);
+          todate = new Date(req.body.leave.to);
+          year = date.getFullYear();
+          month = date.getMonth() + 1;
+          dt = date.getDate();
+          todt = todate.getDate();
+
+          if (dt < 10) {
+            dt = "0" + dt;
+          }
+          if (month < 10) {
+            month = "0" + month;
+          }
+          console.log(todt - dt);
+          req.body.leave.days = todt - dt + 1;
+          console.log(year + "-" + month + "-" + dt);
+          // req.body.leave.to = req.body.leave.to.substring(0, 10);
+          console.log(req.body.leave);
+          // var from = new Date(req.body.leave.from);
+          // from.toISOString().substring(0, 10);
+          // console.log("from date:", strDate);
+          Leave.findByIdAndUpdate(req.body.leave, (err, updateLeave) => {
+            if (err) {
+              req.flash("error", "Something went wrong");
+              res.redirect("back");
+              console.log(err);
+            } else {
+              updateLeave.employee.id = req.user._id;
+              updateLeave.employee.username = req.user.username;
+              console.log("leave is applied by--" + req.user.username);
+
+              // console.log(newLeave.from);
+              updateLeave.save();
+
+              employee.leaves.push(updateLeave);
+
+              employee.save();
+              req.flash("success", "Successfully applied for leave");
+              res.render("homeemployee", { employee: employee, moment: moment });
+            }
+          });
+        }
+      });
+});
+
+app.get('/employee/:id/track/:id/delete', function(req, res){
+  Leave.findByIdAndRemove({_id: req.params.id},
+      function(err, leave){
+        if(err) {
+          res.json(err);
+        }
+        else  {
+          console.log(leave);
+          req.flash("success", "Succesfully Deleted");
+          res.redirect("back");
+        }
+      });
+});
+
 
 
 app.get("/manager/login", (req, res) => {
@@ -516,6 +675,43 @@ app.get("/manager/home", ensureAuthenticated, (req, res) => {
       });
     }
   });
+});
+
+app.get("/manager/contact", ensureAuthenticated, (req, res) => {
+  var manager = req.user.username;
+  console.log(manager);
+  Manager.findOne({ username: req.user.username })
+      .populate("leaves")
+      .exec((err, manager) => {
+        if (err || !manager) {
+          req.flash("error", "Manager not found");
+          res.redirect("back");
+          console.log("err");
+        } else {
+          res.render("contactManager", {
+            manager: manager,
+            moment: moment
+          });
+        }
+      });
+});
+app.get("/manager/aboutus", ensureAuthenticated, (req, res) => {
+  var manager = req.user.username;
+  console.log(manager);
+  Manager.findOne({ username: req.user.username })
+      .populate("leaves")
+      .exec((err, employee) => {
+        if (err || !employee) {
+          req.flash("error", "Manager not found");
+          res.redirect("back");
+          console.log("err");
+        } else {
+          res.render("aboutUsManager", {
+            manager: manager,
+            moment: moment
+          });
+        }
+      });
 });
 app.get("/manager/:id", ensureAuthenticated, (req, res) => {
   console.log(req.params.id);
@@ -685,6 +881,43 @@ app.get("/hr/home", ensureAuthenticated, (req, res) => {
       });
     }
   });
+});
+
+app.get("/hr/contact", ensureAuthenticated, (req, res) => {
+  var hr = req.user.username;
+  console.log(hr);
+  Hr.findOne({ username: req.user.username })
+      .populate("leaves")
+      .exec((err, hr) => {
+        if (err || !hr) {
+          req.flash("error", "Hr not found");
+          res.redirect("back");
+          console.log("err");
+        } else {
+          res.render("contactHr", {
+            hr: hr,
+            moment: moment
+          });
+        }
+      });
+});
+app.get("/hr/aboutus", ensureAuthenticated, (req, res) => {
+  var hr = req.user.username;
+  console.log(hr);
+  Hr.findOne({ username: req.user.username })
+      .populate("leaves")
+      .exec((err, hr) => {
+        if (err || !hr) {
+          req.flash("error", "Hr not found");
+          res.redirect("back");
+          console.log("err");
+        } else {
+          res.render("aboutUsHr", {
+            hr: hr,
+            moment: moment
+          });
+        }
+      });
 });
 
 app.get("/hr/:id", ensureAuthenticated, (req, res) => {

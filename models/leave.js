@@ -28,7 +28,7 @@ var leaveSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
-    stud: {
+    employee: {
       id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Employee"
@@ -38,5 +38,11 @@ var leaveSchema = new mongoose.Schema(
   },
   { timestamps: {} }
 );
+var Leave = (module.exports = mongoose.model("Leave", leaveSchema));
 
-module.exports = mongoose.model("Leave", leaveSchema);
+
+module.exports.getLeaveById = function(id, callback) {
+    Leave.findById(id, callback);
+    console.log("Leave ID DIsplay");
+    console.log(id);
+};
