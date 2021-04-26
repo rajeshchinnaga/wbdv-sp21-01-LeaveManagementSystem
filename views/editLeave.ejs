@@ -11,7 +11,7 @@ width: 40%;
 >
 
 
-    <form action="employee/<%=employee._id%>/track/<%=leave%>?_method=PUT" method="POST" style="margin-top: 20px;">
+    <form action="/employee/<%=employee._id%>/track/<%=leave._id%>?_method=PUT" method="POST" style="margin-top: 20px;">
         <div class="row">
             <div class="col">
                 <h1 style="text-align:center;">Edit Leave <%= leave.subject%></h1>
@@ -33,7 +33,7 @@ width: 40%;
                             data-date-inline-picker="true"
                             id="from"
                             name="leave[from]"
-                            value="<%= fromDate%>"
+                            value="<%= from%>"
 
                     />
                     </div>
@@ -44,7 +44,7 @@ width: 40%;
                             data-date-inline-picker="true"
                             id="to"
                             name="leave[to]"
-                            value="<%= toDate%>"
+                            value="<%= to%>"
                     />
                 </div>
 
@@ -56,7 +56,7 @@ width: 40%;
         </div>
 
     </form>
-    <a href="employee/<%=employee._id%>/track/<%leave%>">Back</a>
+    <a href="/employee/<%=employee.id%>/track">Back</a>
 </div>
 </div>
 </div>

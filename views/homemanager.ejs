@@ -14,6 +14,35 @@
       </div>
     </div>
 
+<div class="container" >
+    <table class="content-table"
+           style="margin: 50px auto;min-width:400px;width: 90%; box-shadow: 0 0 20px rgba(0,0,0,0.15);">
+        <tr  style="background-color: rgb(9, 1, 19); border-radius: 5px 5px 0 0;overflow: hidden;  color: #ffffff;text-align: left; font-weight: bold;"
+        >
+            <th>
+                Subject
+            </th>
+            <th>
+                From
+            </th>
+            <th>To</th>
+            <th>Days</th>
+            <th>Status</th>
+        </tr>
+        <%manager.leaves.forEach(function(leave){%>
+
+        <tr>
+            <td><%=leave.subject%></td>
+            <td><%=moment(leave.from).format('DD/MM/YYYY')%></td>
+            <td><%=moment(leave.to).format('DD/MM/YYYY')%></td>
+            <td><%=leave.days%></td>
+            <td><%=leave.status%></td>
+        </tr>
+
+        <%})%>
+    </table>
+</div>
+
     <% include ./partial/footer %>
   </div>
 </div>

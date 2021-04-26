@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var leaveSchema = new mongoose.Schema(
+const leaveSchema = new mongoose.Schema(
   {
     subject: { type: String, required: "subject cant be blank" },
     from: Date,
@@ -34,7 +34,14 @@ var leaveSchema = new mongoose.Schema(
         ref: "Employee"
       },
       username: String
-    }
+    },
+      manager: {
+          id: {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: "Manager"
+          },
+          username: String
+      }
   },
   { timestamps: {} }
 );

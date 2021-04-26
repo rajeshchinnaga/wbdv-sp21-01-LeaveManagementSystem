@@ -489,7 +489,7 @@ app.get("/employee/:id/apply", ensureAuthenticated, (req, res) => {
       console.log(err);
       res.redirect("back");
     } else {
-      res.render("leaveApply", { employee: foundEmployee });
+      res.render("leaveApplyEmployee", { employee: foundEmployee });
     }
   });
 });
@@ -553,85 +553,90 @@ app.get("/employee/:id/track", (req, res) => {
         req.flash("error", "No employee with requested id");
         res.redirect("back");
       } else {
-        res.render("trackLeave", { employee: foundEmployee, moment: moment });
+        res.render("trackLeaveEmployee", { employee: foundEmployee, moment: moment });
       }
     });
 });
-app.get("/employee/:id/track/:id1/edit", ensureAuthenticated, (req, res) => {
 
-  const leaveId = req.params["id1"];
-  Employee.findById({_id: req.params.id})
-      .populate("leaves")
-      .exec((err, foundEmployee) => {
-        console.log("Employee ID is:")
-        console.log(foundEmployee._id);
-        // console.log(foundEmployee.leaves);
-          const leave = Leave.findOne(leaveId).limit(1);
-          console.log("Leave is ",leave);
-          // console.log(leave["from"])
-          Leave.findById(leave,(err, foundLeave) => {
-            console.log(leaveId);
-            console.log(leave["from"]);
-            var fromDate = moment(leave.from).utc().format("YYYY-MM-DD");
-            var toDate = moment(leave.to).utc().format("YYYY-MM-DD");
-            console.log(fromDate);
-            console.log(toDate);
-            res.render("editLeave", {employee: foundEmployee, leave:leave, fromDate: fromDate, toDate: toDate});
-            console.log("LoadedEditLeave");
-          });
-      });
-});
-
-app.post("/employee/:id/track/:id", (req, res) => {
-  Employee.findById(req.params.id)
-      .populate("leaves")
-      .exec((err, employee) => {
-        if (err) {
-          res.redirect("/employee/home");
-        } else {
-          date = new Date(req.body.leave.from);
-          todate = new Date(req.body.leave.to);
-          year = date.getFullYear();
-          month = date.getMonth() + 1;
-          dt = date.getDate();
-          todt = todate.getDate();
-
-          if (dt < 10) {
-            dt = "0" + dt;
-          }
-          if (month < 10) {
-            month = "0" + month;
-          }
-          console.log(todt - dt);
-          req.body.leave.days = todt - dt + 1;
-          console.log(year + "-" + month + "-" + dt);
-          // req.body.leave.to = req.body.leave.to.substring(0, 10);
-          console.log(req.body.leave);
-          // var from = new Date(req.body.leave.from);
-          // from.toISOString().substring(0, 10);
-          // console.log("from date:", strDate);
-          Leave.findByIdAndUpdate(req.body.leave, (err, updateLeave) => {
+app.get("/employee/:id/track/:leave_id/edit", (req, res) => {
+  Employee.findById(req.params.id).exec((err, employeeFound) => {
+    if (err) {
+      req.flash("error", "Employee not found with requested id");
+      res.redirect("back");
+    } else {
+      Leave.findById(req.params.leave_id)
+         .exec((err, foundLeave) => {
+           var fromDate = moment(foundLeave.from).utc().format("YYYY-MM-DD");
+           var toDate = moment(foundLeave.to).utc().format("YYYY-MM-DD");
             if (err) {
-              req.flash("error", "Something went wrong");
+              req.flash("error", "Leave not found with this id");
               res.redirect("back");
-              console.log(err);
             } else {
-              updateLeave.employee.id = req.user._id;
-              updateLeave.employee.username = req.user.username;
-              console.log("leave is applied by--" + req.user.username);
-
-              // console.log(newLeave.from);
-              updateLeave.save();
-
-              employee.leaves.push(updateLeave);
-
-              employee.save();
-              req.flash("success", "Successfully applied for leave");
-              res.render("homeemployee", { employee: employee, moment: moment });
+              res.render("editLeave", {
+                leave: foundLeave,
+                employee: employeeFound,
+                from: fromDate,
+                to: toDate,
+                moment: moment
+              });
             }
           });
-        }
-      });
+    }
+  });
+});
+
+app.put("/employee/:id/track/:leave_id", (req, res) => {
+  Employee.findById(req.params.id).exec((err, foundemployee) => {
+    if (err) {
+      req.flash("error", "Employee not found with requested id");
+      res.redirect("back");
+    } else{
+      date = new Date(req.body.leave.from);
+    todate = new Date(req.body.leave.to);
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    dt = date.getDate();
+    todt = todate.getDate();
+
+    if (dt < 10) {
+      dt = "0" + dt;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+    console.log(todt - dt);
+    req.body.leave.days = todt - dt + 1;
+    console.log(year + "-" + month + "-" + dt);
+    // req.body.leave.to = req.body.leave.to.substring(0, 10);
+    console.log(req.body.leave);
+    // var from = new Date(req.body.leave.from);
+    // from.toISOString().substring(0, 10);
+    // console.log("from date:", strDate);
+      Leave.findByIdAndUpdate(
+          req.params.id,
+          req.body.leave,
+          (err, updatedLeave) => {
+            console.log(updatedLeave);
+            if (err) {
+              req.flash("error", err.message);
+              res.redirect("back");
+            } else {
+
+              // console.log(newLeave.from);
+             // updatedLeave.save();
+              updatedLeave.push();
+
+              foundemployee.leaves.push(updatedLeave);
+
+              foundemployee.save();
+
+              req.flash("success", "Succesfully Updated");
+              res.redirect("/employee/" + req.params.id);
+            }
+          }
+      );
+    }
+  });
 });
 
 app.get('/employee/:id/track/:id/delete', function(req, res){
@@ -665,16 +670,24 @@ app.post(
     res.redirect("/manager/home");
   }
 );
+
 app.get("/manager/home", ensureAuthenticated, (req, res) => {
-  Manager.find({}, (err, manager) => {
-    if (err) {
-      console.log("err");
-    } else {
-      res.render("homemanager", {
-        manager: req.user
+  var manager = req.user.username;
+  console.log(manager);
+  Manager.findOne({ username: req.user.username })
+      .populate("leaves")
+      .exec((err, manager) => {
+        if (err || !manager) {
+          req.flash("error", "Manager not found");
+          res.redirect("back");
+          console.log("err");
+        } else {
+          res.render("homemanager", {
+            manager: manager,
+            moment: moment
+          });
+        }
       });
-    }
-  });
 });
 
 app.get("/manager/contact", ensureAuthenticated, (req, res) => {
@@ -724,6 +737,98 @@ app.get("/manager/:id", ensureAuthenticated, (req, res) => {
     }
   });
 });
+
+app.get("/manager/:id/apply", ensureAuthenticated, (req, res) => {
+  Manager.findById(req.params.id, (err, foundManager) => {
+    if (err) {
+      console.log(err);
+      res.redirect("back");
+    } else {
+      res.render("leaveApplyManager", { manager: foundManager });
+    }
+  });
+});
+
+app.post("/manager/:id/apply", (req, res) => {
+  Manager.findById(req.params.id)
+      .populate("leaves")
+      .exec((err, manager) => {
+        if (err) {
+          res.redirect("/manager/home");
+        } else {
+          date = new Date(req.body.leave.from);
+          todate = new Date(req.body.leave.to);
+          year = date.getFullYear();
+          month = date.getMonth() + 1;
+          dt = date.getDate();
+          todt = todate.getDate();
+
+          if (dt < 10) {
+            dt = "0" + dt;
+          }
+          if (month < 10) {
+            month = "0" + month;
+          }
+          console.log(todt - dt);
+          req.body.leave.days = todt - dt + 1;
+          console.log(year + "-" + month + "-" + dt);
+          // req.body.leave.to = req.body.leave.to.substring(0, 10);
+          console.log(req.body.leave);
+          // var from = new Date(req.body.leave.from);
+          // from.toISOString().substring(0, 10);
+          // console.log("from date:", strDate);
+          Leave.create(req.body.leave, (err, newLeave) => {
+            if (err) {
+              req.flash("error", "Something went wrong");
+              res.redirect("back");
+              console.log(err);
+            } else {
+              newLeave.manager.id = req.user._id;
+              newLeave.manager.username = req.user.username;
+              console.log("leave is applied by--" + req.user.username);
+
+              // console.log(newLeave.from);
+              newLeave.save();
+
+              manager.leaves.push(newLeave);
+
+              manager.save();
+              req.flash("success", "Successfully applied for leave");
+              res.render("homemanager", { manager: manager, moment: moment });
+            }
+          });
+        }
+      });
+});
+
+app.get("/manager/:id/track", (req, res) => {
+  Manager.findById(req.params.id)
+      .populate("leaves")
+      .exec((err, foundManager) => {
+        if (err) {
+          req.flash("error", "No manager with requested id");
+          res.redirect("back");
+        } else {
+          res.render("trackLeaveManager", { manager: foundManager, moment: moment });
+        }
+      });
+});
+
+
+app.get('/manager/:id/track/:id/delete', function(req, res){
+  Leave.findByIdAndRemove({_id: req.params.id},
+      function(err, leave){
+        if(err) {
+          res.json(err);
+        }
+        else  {
+          console.log(leave);
+          req.flash("success", "Succesfully Deleted");
+          res.redirect("back");
+        }
+      });
+});
+
 app.get("/manager/:id/edit", ensureAuthenticated, (req, res) => {
   Manager.findById(req.params.id, (err, foundManager) => {
     res.render("editManager", { manager: foundManager });
