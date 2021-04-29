@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1363842-b723-4968-afe3-38bde09fc351" name="Default Changelist" comment="Final Changes for WebDev Project">
-      <change afterPath="$PROJECT_DIR$/views/aboutUs.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/contactUs.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/editLeaveManager.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/aboutUsEmployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/aboutUsEmployee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/aboutUsManager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/aboutUsManager.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/contactEmployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/contactEmployee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/contactManager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/contactManager.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/editLeave.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/editLeaveEmployee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/homeemployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/homeemployee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/hrLeaveSign.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/hrLeaveSign.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/leaveApplyEmployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/leaveApplyEmployee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/leaveApplyManager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/leaveApplyManager.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/moreinfoemployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/moreinfoemployee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partial/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partial/header.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/profilehr.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profilehr.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/trackLeaveEmployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/trackLeaveEmployee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/trackLeaveManager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/trackLeaveManager.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/aboutUsHr.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/aboutUsHr.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/contactHr.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/contactHr.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +89,7 @@
       <updated>1618944471646</updated>
       <workItem from="1618944475061" duration="151000" />
       <workItem from="1618944629279" duration="101747000" />
-      <workItem from="1619366555390" duration="51052000" />
+      <workItem from="1619366555390" duration="52147000" />
     </task>
     <task id="LOCAL-00001" summary="Project">
       <created>1619024621946</created>
@@ -128,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619472334183</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Final Changes for WebDev Project">
+      <created>1619675347411</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619675347411</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
