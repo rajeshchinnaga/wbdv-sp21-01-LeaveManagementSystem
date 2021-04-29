@@ -1,0 +1,64 @@
+<% include ./partial/header %>
+<div
+        class="container"
+        style=" position: relative;
+border-radius: 5px;
+background-color: #f2f2f2;
+padding: 60px 0 30px 0;
+width: 40%;
+
+"
+>
+
+
+    <form action="/manager/<%=manager._id%>/track/<%=leave._id%>?_method=PUT" method="POST" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col">
+                <h1 style="text-align:center;">Edit Leave <%= leave.subject%></h1>
+
+                <div class="form-group">
+                    <input
+                            type="text"
+                            placeholder="subject"
+                            name="leave[subject]"
+                            value="<%= leave.subject%>"
+                            class="form-control"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <label for="from">From:</label>
+                    <input
+                            type="date"
+                            data-date-inline-picker="true"
+                            id="from"
+                            name="leave[from]"
+                            value="<%= from%>"
+
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="to">To:</label>
+                    <input
+                            type="date"
+                            data-date-inline-picker="true"
+                            id="to"
+                            name="leave[to]"
+                            value="<%= to%>"
+                    />
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-lg btn-block btn-default">Submit</button>
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+    <a href="/manager/<%=manager.id%>/track">Back</a>
+</div>
+</div>
+</div>
+
+<% include ./partial/footer %>

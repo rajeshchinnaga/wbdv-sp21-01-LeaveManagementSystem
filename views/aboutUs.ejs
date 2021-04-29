@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+    <!-- begin Clearbit code-->
+    <script src="https://reveal.clearbit.com/v1/companies/reveal?variable=reveal&authorization=pk_01c31a0cbc8c239c57700be7eab9505c"></script>
+    <!-- end Clearbit code-->
+
+    <meta name="google-site-verification" content="wcd-ZZVpzqObShFbiW-i1j6y04hpXRaRfvyfdK8ZcRc" />
+    <meta name="msvalidate.01" content="37D434DED62A44A919146ACCDF2431BD" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-ZLCX');</script>
+    <!-- Sets the bhr_subscriber cookie for Google Tag Manager -->
+    <script>
+        var bhr_subscriber = false;
+        var bhr_admin = false;
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script>
+        function ignoreRemoteUncaught(isUncaught, args, payload) {
+            try {
+                var filename = payload.body.trace.frames[0].filename;
+                if (isUncaught && !filename.match(/LMS/)) {
+                    // Ignore uncaught errors that are not from any LMS domains
+                    return true;
+                }
+            } catch (e) {
+                // Most likely there was no filename or the frame doesnt exist
+            }
+            return false;
+        }
+
+        var isSupportedBrowser = true;
+        var enabledEnvironments = ['prod', 'stage'];
+        var isEnabled = isSupportedBrowser && enabledEnvironments.indexOf('prod') > -1;
+        var isMobile = false;
+
+        var _rollbarConfig = {
+            accessToken: "956069c7be6e48749db8b37cb1156fcf",
+            captureUncaught: isEnabled,
+            captureUnhandledRejections: isEnabled,
+            enabled: isEnabled,
+            payload: {
+                environment: 'prod' + '-' + (isMobile ? 'mobile' : 'desktop'),
+                client: {
+                    javascript: {
+                        source_map_enabled: true,
+                        code_version: "21.0428.091210-1bc001e",
+                        guess_uncaught_frames: true
+                    }
+                }
+            },
+            ignoredMessages: ['Script error.', 'Script error'], // ignore CORS issues (confirmed by rollbarjs devs)
+            checkIgnore: ignoreRemoteUncaught
+        };
+        // Rollbar Snippet
+        !function(r){function o(n){if(e[n])return e[n].exports;var t=e[n]={exports:{},id:n,loaded:!1};return r[n].call(t.exports,t,t.exports,o),t.loaded=!0,t.exports}var e={};return o.m=r,o.c=e,o.p="",o(0)}([function(r,o,e){"use strict";var n=e(1),t=e(4);_rollbarConfig=_rollbarConfig||{},_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://cdnjs.cloudflare.com/ajax/libs/rollbar.js/2.2.10/rollbar.min.js",_rollbarConfig.async=void 0===_rollbarConfig.async||_rollbarConfig.async;var a=n.setupShim(window,_rollbarConfig),l=t(_rollbarConfig);window.rollbar=n.Rollbar,a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,l)},function(r,o,e){"use strict";function n(r){return function(){try{return r.apply(this,arguments)}catch(r){try{console.error("[Rollbar]: Internal error",r)}catch(r){}}}}function t(r,o){this.options=r,this._rollbarOldOnError=null;var e=s++;this.shimId=function(){return e},window&&window._rollbarShims&&(window._rollbarShims[e]={handler:o,messages:[]})}function a(r,o){var e=o.globalAlias||"Rollbar";if("object"==typeof r[e])return r[e];r._rollbarShims={},r._rollbarWrappedError=null;var t=new p(o);return n(function(){o.captureUncaught&&(t._rollbarOldOnError=r.onerror,i.captureUncaughtExceptions(r,t,!0),i.wrapGlobals(r,t,!0)),o.captureUnhandledRejections&&i.captureUnhandledRejections(r,t,!0);var n=o.autoInstrument;return o.enabled!==!1&&(void 0===n||n===!0||"object"==typeof n&&n.network)&&r.addEventListener&&(r.addEventListener("load",t.captureLoad.bind(t)),r.addEventListener("DOMContentLoaded",t.captureDomContentLoaded.bind(t))),r[e]=t,t})()}function l(r){return n(function(){var o=this,e=Array.prototype.slice.call(arguments,0),n={shim:o,method:r,args:e,ts:new Date};window._rollbarShims[this.shimId()].messages.push(n)})}var i=e(2),s=0,d=e(3),c=function(r,o){return new t(r,o)},p=d.bind(null,c);t.prototype.loadFull=function(r,o,e,t,a){var l=function(){var o;if(void 0===r._rollbarDidLoad){o=new Error("rollbar.js did not load");for(var e,n,t,l,i=0;e=r._rollbarShims[i++];)for(e=e.messages||[];n=e.shift();)for(t=n.args||[],i=0;i<t.length;++i)if(l=t[i],"function"==typeof l){l(o);break}}"function"==typeof a&&a(o)},i=!1,s=o.createElement("script"),d=o.getElementsByTagName("script")[0],c=d.parentNode;s.crossOrigin="",s.src=t.rollbarJsUrl,e||(s.async=!0),s.onload=s.onreadystatechange=n(function(){if(!(i||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){s.onload=s.onreadystatechange=null;try{c.removeChild(s)}catch(r){}i=!0,l()}}),c.insertBefore(s,d)},t.prototype.wrap=function(r,o,e){try{var n;if(n="function"==typeof o?o:function(){return o||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._rollbar_wrapped&&(r._rollbar_wrapped=function(){e&&"function"==typeof e&&e.apply(this,arguments);try{return r.apply(this,arguments)}catch(e){var o=e;throw"string"==typeof o&&(o=new String(o)),o._rollbarContext=n()||{},o._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=o,o}},r._rollbar_wrapped._isWrap=!0,r.hasOwnProperty))for(var t in r)r.hasOwnProperty(t)&&(r._rollbar_wrapped[t]=r[t]);return r._rollbar_wrapped}catch(o){return r}};for(var u="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,captureEvent,captureDomContentLoaded,captureLoad".split(","),f=0;f<u.length;++f)t.prototype[u[f]]=l(u[f]);r.exports={setupShim:a,Rollbar:p}},function(r,o){"use strict";function e(r,o,e){if(r){var t;"function"==typeof o._rollbarOldOnError?t=o._rollbarOldOnError:r.onerror&&!r.onerror.belongsToShim&&(t=r.onerror,o._rollbarOldOnError=t);var a=function(){var e=Array.prototype.slice.call(arguments,0);n(r,o,t,e)};a.belongsToShim=e,r.onerror=a}}function n(r,o,e,n){r._rollbarWrappedError&&(n[4]||(n[4]=r._rollbarWrappedError),n[5]||(n[5]=r._rollbarWrappedError._rollbarContext),r._rollbarWrappedError=null),o.handleUncaughtException.apply(o,n),e&&e.apply(r,n)}function t(r,o,e){if(r){"function"==typeof r._rollbarURH&&r._rollbarURH.belongsToShim&&r.removeEventListener("unhandledrejection",r._rollbarURH);var n=function(r){var e=r.reason,n=r.promise,t=r.detail;!e&&t&&(e=t.reason,n=t.promise),o&&o.handleUnhandledRejection&&o.handleUnhandledRejection(e,n)};n.belongsToShim=e,r._rollbarURH=n,r.addEventListener("unhandledrejection",n)}}function a(r,o,e){if(r){var n,t,a="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(n=0;n<a.length;++n)t=a[n],r[t]&&r[t].prototype&&l(o,r[t].prototype,e)}}function l(r,o,e){if(o.hasOwnProperty&&o.hasOwnProperty("addEventListener")){for(var n=o.addEventListener;n._rollbarOldAdd&&n.belongsToShim;)n=n._rollbarOldAdd;var t=function(o,e,t){n.call(this,o,r.wrap(e),t)};t._rollbarOldAdd=n,t.belongsToShim=e,o.addEventListener=t;for(var a=o.removeEventListener;a._rollbarOldRemove&&a.belongsToShim;)a=a._rollbarOldRemove;var l=function(r,o,e){a.call(this,r,o&&o._rollbar_wrapped||o,e)};l._rollbarOldRemove=a,l.belongsToShim=e,o.removeEventListener=l}}r.exports={captureUncaughtExceptions:e,captureUnhandledRejections:t,wrapGlobals:a}},function(r,o){"use strict";function e(r,o){this.impl=r(o,this),this.options=o,n(e.prototype)}function n(r){for(var o=function(r){return function(){var o=Array.prototype.slice.call(arguments,0);if(this.impl[r])return this.impl[r].apply(this.impl,o)}},e="log,debug,info,warn,warning,error,critical,global,configure,handleUncaughtException,handleUnhandledRejection,_createItem,wrap,loadFull,shimId,captureEvent,captureDomContentLoaded,captureLoad".split(","),n=0;n<e.length;n++)r[e[n]]=o(e[n])}e.prototype._swapAndProcessMessages=function(r,o){this.impl=r(this.options);for(var e,n,t;e=o.shift();)n=e.method,t=e.args,this[n]&&"function"==typeof this[n]&&("captureDomContentLoaded"===n||"captureLoad"===n?this[n].apply(this,[t[0],e.ts]):this[n].apply(this,t));return this},r.exports=e},function(r,o){"use strict";r.exports=function(r){return function(o){if(!o&&!window._rollbarInitialized){r=r||{};for(var e,n,t=r.globalAlias||"Rollbar",a=window.rollbar,l=function(r){return new a(r)},i=0;e=window._rollbarShims[i++];)n||(n=e.handler),e.handler._swapAndProcessMessages(l,e.messages);window[t]=n,window._rollbarInitialized=!0}}}}]);
+        // End Rollbar Snippet
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='canonical' href='https://www.LMS.com/about/' />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" href="/images/navbar/logo-icon-57x57.png">
+    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/navbar/logo-icon-114x114.png">
+    <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/navbar/logo-icon-72x72.png">
+    <!-- For iPad Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/navbar/logo-icon-144x144.png">
+
+    <meta name="description" content="We are HR nerds and we&#039;re proud of it. Our happy clients keep us striving to provide even better HR software solutions. Discover the story behind LeaveManagementSystem today!" />
+
+
+    <link rel="stylesheet" href="/css/new/head.4e2692f5.dist.css" />
+
+    <link href="/css/new/about.5e36e9c8.dist.css" rel="stylesheet" />
+
+
+    <script type="text/javascript" src="/js/new/head.08d3dc6c.dist.js"></script>
+    <script>
+        window.hj=window.hj||function(){(hj.q=hj.q||[]).push(arguments)};
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (bhr_subscriber) {
+                hj('tagRecording', ['user']);
+            } else {
+                hj('tagRecording', ['non-user']);
+            }
+        });
+    </script>
+
+
+    <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+    <script>
+        // this script is use for defining Wistia
+        window.wistiaInitQueue = window.wistiaInitQueue || [];
+        window.wistiaInitQueue.push(function(W) {
+            console.log("Wistia library loaded and available in the W argument!");
+        });
+    </script>
+
+    <title>About LeaveManagementSystem | And Why We Love Building Great HR Software Solutions</title>
+
+
+
+
+
+</head>
+<form action="/aboutUs" style="margin: 0 auto;">
+    <body class="" id="">
+    <!-- Google Tag Manager (noscript) -->
+
+
+    <span id="skipToContent"></span>
+
+    <a href="/">Back</a>
+    <section class="About fixed-nav-padding" aria-label="About LeaveManegementSystem" role="main">
+        <div class="AboutContent AboutContent--1">
+            <div class="AboutContentWrapper AboutContentWrapper--1 bhrsection-padding bhrtyp-center">
+                <h1 class="AboutContentTitle AboutContentTitle--mobile AboutContentTitle--header AboutContentTitle--1 bhrcolor-gray11 typ-display1 bhrtyp-italic">About Us</h1>
+                <div class="AboutContentVideo wistia-container">
+                    <script src="https://fast.wistia.com/embed/medias/3g710daip3.jsonp" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><span class="wistia_embed wistia_async_3g710daip3 popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;position:relative;width:100%">&nbsp;</span></div></div>
+                </div>
+                <div class="AboutContentCopy AboutContentCopy--1">
+                    <h1 class="AboutContentTitle AboutContentTitle--desktop AboutContentTitle--1 bhrcolor-gray11 typ-display1 bhrtyp-italic">About Us</h1>
+                    <p>At LeaveManagementSystem, you can do work differently than you’ve ever done it before. Yes, we love building great HR software. It makes us happy. (Or nerds.) But what makes us happiest is knowing our software makes life better for our clients. We believe work should be an outlet for greatness. If we can free up your time to do great work, everybody wins.</p>
+                </div>
+            </div>
+        </div>
+        <img class="AboutLeaf AboutLeaf--top" src="/images/leaf/white/leaf-top-2-white-min.png" alt="Image Leaf" />
+        <div class="AboutContent AboutContent--2">
+            <div class="AboutContentWrapper AboutContentWrapper--2 bhrsection-padding bhrtyp-center">
+                <h2 class="AboutContentTitle AboutContentTitle--mobile AboutContentTitle--2 bhrcolor-gray11 typ-small-header bhrtyp-italic">Our Founders</h2>
+                <div class="AboutContentVideo wistia-container">
+                    <script src="https://fast.wistia.com/embed/medias/lpmwfytefp.jsonp" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><span class="wistia_embed wistia_async_lpmwfytefp popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;position:relative;width:100%">&nbsp;</span></div></div>
+                </div>
+                <div class="AboutContentCopy AboutContentCopy--2">
+                    <h2 class="AboutContentTitle AboutContentTitle--desktop AboutContentTitle--2 bhrcolor-gray11 typ-small-header bhrtyp-italic">Our Founders</h2>
+                    <p>Ben Peterson and Ryan Sanders didn’t start LeaveManagementSystem just to make a buck. They wanted to make an exceptional product that customers would love and a company where employees would enjoy coming to work. If they could accomplish both—spoiler alert: they did—they knew financial success would follow. But success at LeaveManagementSystem is about much more than making money. It’s about loving what we do because it makes a difference, and knowing our work supports our personal lives—not the other way around.</p>
+                </div>
+            </div>
+        </div>
+        <img class="AboutLeaf" src="/images/leaf/white/leaf-bottom-2-white-min.png" alt="Image Leaf" />
+        <div class="AboutContent AboutContent--3">
+            <div class="AboutContentWrapper AboutContentWrapper--3 bhrsection-padding bhrtyp-center">
+                <h2 class="AboutContentTitle AboutContentTitle--mobile AboutContentTitle--3 bhrcolor-gray11 typ-small-header bhrtyp-italic">Our Culture</h2>
+                <div class="AboutContentVideo wistia-container">
+                    <script src="https://fast.wistia.com/embed/medias/ktd9x63zhk.jsonp" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><span class="wistia_embed wistia_async_ktd9x63zhk popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;position:relative;width:100%">&nbsp;</span></div></div>
+                </div>
+                <div class="AboutContentCopy AboutContentCopy--3">
+                    <h2 class="AboutContentTitle AboutContentTitle--desktop AboutContentTitle--3 bhrcolor-gray11 typ-small-header bhrtyp-italic">Our Culture</h2>
+                    <p>Our values inform everything we do at LeaveManagementSystem—they set the standard for how we think, how we communicate, and how we act. Our values aren’t just for cute posters we only point to when it’s convenient. We’re proud of how our values guide the way we do business and the way we interact with our customers and each other, every day.</p>
+                </div>
+            </div>
+        </div>
+        <img class="AboutLeaf AboutLeaf--white" src="/images/leaf/gray/leaf-top-2-gray-1-inverted-min.png" alt="Image Leaf" />
+        <div class="AboutContent AboutContent--4">
+            <div class="AboutContentWrapper AboutContentWrapper--4 bhrsection-padding bhrtyp-center">
+                <h2 class="AboutContentTitle AboutContentTitle--mobile AboutContentTitle--4 bhrcolor-gray11 typ-small-header bhrtyp-italic">Our Product</h2>
+                <div class="AboutContentVideo wistia-container">
+                    <script src="https://fast.wistia.com/embed/medias/62nfcvvyfd.jsonp" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><span class="wistia_embed wistia_async_62nfcvvyfd popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;position:relative;width:100%">&nbsp;</span></div></div>
+                </div>
+                <div class="AboutContentCopy AboutContentCopy--4">
+                    <h2 class="AboutContentTitle AboutContentTitle--desktop AboutContentTitle--4 bhrcolor-gray11 typ-small-header bhrtyp-italic">Our Product</h2>
+                    <p>We’re not just a software company; we’re creating an experience that helps over a million employees have the best HR experience possible and be more successful every day in their work. LeaveManagementSystem sets people free to do great work—not just HR pros, but entire organizations, including our own.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript" src="/js/new/foot.524228fe.dist.js"></script>
+
+
+        <script type="text/javascript" src="/js/new/about.4a864304.dist.js"></script>
+
+
+    </section>
+    </body>
+</form>
+</html>

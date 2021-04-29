@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1363842-b723-4968-afe3-38bde09fc351" name="Default Changelist" comment="Changes to Tracking Leaves across Users">
-      <change afterPath="$PROJECT_DIR$/views/leaveApplyManager.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/trackLeaveManager.ejs" afterDir="false" />
+    <list default="true" id="a1363842-b723-4968-afe3-38bde09fc351" name="Default Changelist" comment="Final Changes for WebDev Project">
+      <change afterPath="$PROJECT_DIR$/views/aboutUs.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/contactUs.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/editLeaveManager.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/leave.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/leave.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/editLeave.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/editLeave.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/homemanager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/homemanager.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/leaveApply.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/leaveApplyEmployee.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partial/managerfunction.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partial/managerfunction.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/trackLeave.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/trackLeaveEmployee.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/aboutUsEmployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/aboutUsEmployee.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/aboutUsManager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/aboutUsManager.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/contactEmployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/contactEmployee.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/contactManager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/contactManager.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/editLeave.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/editLeaveEmployee.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/homeemployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/homeemployee.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/hrLeaveSign.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/hrLeaveSign.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/leaveApplyEmployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/leaveApplyEmployee.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/leaveApplyManager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/leaveApplyManager.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/moreinfoemployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/moreinfoemployee.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partial/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partial/header.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/profilehr.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profilehr.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/trackLeaveEmployee.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/trackLeaveEmployee.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/trackLeaveManager.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/trackLeaveManager.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +36,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1rRgm1hrkAw4oWWf5Y30hlCZNQX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -69,6 +86,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="check.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/models/check.js" working-dir="$PROJECT_DIR$/models">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.check.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -80,7 +105,7 @@
       <updated>1618944471646</updated>
       <workItem from="1618944475061" duration="151000" />
       <workItem from="1618944629279" duration="101747000" />
-      <workItem from="1619366555390" duration="24634000" />
+      <workItem from="1619366555390" duration="51052000" />
     </task>
     <task id="LOCAL-00001" summary="Project">
       <created>1619024621946</created>
@@ -96,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619379581000</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Final Changes for WebDev Project">
+      <created>1619472334182</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619472334183</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +149,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project" />
     <MESSAGE value="Changes to Tracking Leaves across Users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to Tracking Leaves across Users" />
+    <MESSAGE value="Final Changes for WebDev Project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Changes for WebDev Project" />
   </component>
 </project>

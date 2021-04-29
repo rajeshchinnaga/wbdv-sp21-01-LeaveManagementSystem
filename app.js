@@ -147,6 +147,13 @@ app.get("/posts", (req, res) => {
 // });
 
 //registration form
+app.get("/contact", (req, res) => {
+  res.render("contactUs");
+});
+app.get("/aboutUs", (req, res) => {
+  res.render("aboutUs");
+});
+
 app.get("/register", (req, res) => {
   res.render("register");
 });
@@ -572,7 +579,7 @@ app.get("/employee/:id/track/:leave_id/edit", (req, res) => {
               req.flash("error", "Leave not found with this id");
               res.redirect("back");
             } else {
-              res.render("editLeave", {
+              res.render("editLeaveEmployee", {
                 leave: foundLeave,
                 employee: employeeFound,
                 from: fromDate,
@@ -613,8 +620,8 @@ app.put("/employee/:id/track/:leave_id", (req, res) => {
     // from.toISOString().substring(0, 10);
     // console.log("from date:", strDate);
       Leave.findByIdAndUpdate(
-          req.params.id,
-          req.body.leave,
+          {_id: req.params.leave_id},
+          { $set: req.body.leave },
           (err, updatedLeave) => {
             console.log(updatedLeave);
             if (err) {
@@ -623,12 +630,12 @@ app.put("/employee/:id/track/:leave_id", (req, res) => {
             } else {
 
               // console.log(newLeave.from);
-             // updatedLeave.save();
-              updatedLeave.push();
-
-              foundemployee.leaves.push(updatedLeave);
-
-              foundemployee.save();
+              console.log(updatedLeave);
+              // updatedLeave.save();
+              //
+              // foundemployee.leaves.push(updatedLeave);
+              //
+              // foundemployee.save();
 
               req.flash("success", "Succesfully Updated");
               res.redirect("/employee/" + req.params.id);
@@ -814,6 +821,86 @@ app.get("/manager/:id/track", (req, res) => {
       });
 });
 
+app.get("/manager/:id/track/:leave_id/edit", (req, res) => {
+  Manager.findById(req.params.id).exec((err, managerFound) => {
+    if (err) {
+      req.flash("error", "Manager not found with requested id");
+      res.redirect("back");
+    } else {
+      Leave.findById(req.params.leave_id)
+          .exec((err, foundLeave) => {
+            var fromDate = moment(foundLeave.from).utc().format("YYYY-MM-DD");
+            var toDate = moment(foundLeave.to).utc().format("YYYY-MM-DD");
+            if (err) {
+              req.flash("error", "Leave not found with this id");
+              res.redirect("back");
+            } else {
+              res.render("editLeaveManager", {
+                leave: foundLeave,
+                manager: managerFound,
+                from: fromDate,
+                to: toDate,
+                moment: moment
+              });
+            }
+          });
+    }
+  });
+});
+
+app.put("/manager/:id/track/:leave_id", (req, res) => {
+  Manager.findById(req.params.id).exec((err, foundManager) => {
+    if (err) {
+      req.flash("error", "Manager not found with requested id");
+      res.redirect("back");
+    } else{
+      date = new Date(req.body.leave.from);
+      todate = new Date(req.body.leave.to);
+      year = date.getFullYear();
+      month = date.getMonth() + 1;
+      dt = date.getDate();
+      todt = todate.getDate();
+
+      if (dt < 10) {
+        dt = "0" + dt;
+      }
+      if (month < 10) {
+        month = "0" + month;
+      }
+      console.log(todt - dt);
+      req.body.leave.days = todt - dt + 1;
+      console.log(year + "-" + month + "-" + dt);
+      // req.body.leave.to = req.body.leave.to.substring(0, 10);
+      console.log(req.body.leave);
+      // var from = new Date(req.body.leave.from);
+      // from.toISOString().substring(0, 10);
+      // console.log("from date:", strDate);
+      Leave.findByIdAndUpdate(
+          {_id: req.params.leave_id},
+          { $set: req.body.leave },
+          (err, updatedLeave) => {
+            console.log(updatedLeave);
+            if (err) {
+              req.flash("error", err.message);
+              res.redirect("back");
+            } else {
+
+              // console.log(newLeave.from);
+              console.log(updatedLeave);
+              // updatedLeave.save();
+              //
+              // foundemployee.leaves.push(updatedLeave);
+              //
+              // foundemployee.save();
+
+              req.flash("success", "Succesfully Updated");
+              res.redirect("/manager/" + req.params.id);
+            }
+          }
+      );
+    }
+  });
+});
 
 app.get('/manager/:id/track/:id/delete', function(req, res){
   Leave.findByIdAndRemove({_id: req.params.id},

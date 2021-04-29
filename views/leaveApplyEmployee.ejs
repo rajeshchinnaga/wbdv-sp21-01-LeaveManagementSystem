@@ -1,12 +1,13 @@
 <% include ./partial/header %> <% include ./partial/employeefunction %>
-
+<div class="col-md-6"></div>
 <div
-  class="col-sm-6"
+
   style="    flex: 0 0 50%;
 max-width: 50%;
 margin-left: 431px;
 margin-top: -181px;  text-align: -webkit-center;"
 >
+  <div class="col-md-8">
   <h1>Apply for leave here <%=employee.name%></h1>
   <form action="/employee/<%=employee._id%>/apply" method="POST">
     <div class="form-group">
@@ -40,6 +41,7 @@ margin-top: -181px;  text-align: -webkit-center;"
       <button class="btn btn-lg btn-block btn-default">Submit</button>
     </div>
   </form>
+  </div>
 
   <% include ./partial/footer %>
 </div>
